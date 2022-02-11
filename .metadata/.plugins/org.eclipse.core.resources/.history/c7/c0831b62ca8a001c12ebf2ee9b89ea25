@@ -1,0 +1,67 @@
+package model.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import db.DbException;
+import model.dao.ElementDao;
+import model.entities.Element;
+
+public class MangaDaoJDBC implements ElementDao{
+	
+	Connection conn;
+	
+	public MangaDaoJDBC(Connection conn) {
+		this.conn = conn;
+	}
+	
+	@Override
+	public void insert(Element element) {
+		PreparedStatement st;
+		
+		try {
+			
+			st = conn.prepareStatement("INSERT INTO amslist.mangas "
+					+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+					+ "VALUES (?,?,?,?,?,?,?,?)");
+			
+			st.setString(1, element.getName());
+			st.setString(2, element.getCoverImage());
+			st.setString(3, element.getSiteLink());
+			st.setString(4, element.getDescription());
+			st.setString(5, element.getStatus().toString());
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		
+	}
+
+	@Override
+	public void update(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Element> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

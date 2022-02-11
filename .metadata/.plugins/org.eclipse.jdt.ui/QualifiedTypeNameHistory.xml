@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Image"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="model.entities.Anime"/>
+    <fullyQualifiedTypeName name="model.entities.Serie"/>
+    <fullyQualifiedTypeName name="sun.security.util.Password"/>
+    <fullyQualifiedTypeName name="model.dao.impl.UserDaoJDBC"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
+    <fullyQualifiedTypeName name="model.dao.ElementDao"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.ElementTraversal"/>
+    <fullyQualifiedTypeName name="model.entities.Manga"/>
+    <fullyQualifiedTypeName name="db.DB"/>
+    <fullyQualifiedTypeName name="model.dao.MangaDao"/>
+    <fullyQualifiedTypeName name="model.dao.DaoFactory"/>
+    <fullyQualifiedTypeName name="model.entities.Element"/>
+    <fullyQualifiedTypeName name="model.dao.impl.ElementDaoJDBC"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="db.DbException"/>
+    <fullyQualifiedTypeName name="model.dao.impl.MangaDaoJDBC"/>
+    <fullyQualifiedTypeName name="model.enums.Status"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="model.entities.User"/>
+</qualifiedTypeNameHistroy>

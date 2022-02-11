@@ -1,0 +1,37 @@
+package application;
+
+import model.entities.Anime;
+import model.entities.Element;
+import model.entities.Manga;
+import model.entities.Serie;
+import model.entities.User;
+import model.enums.Status;
+
+public class Program {
+	
+	static User user = new User(1,"Greg", "greg@gmail.co", "123");
+	
+	public static void main(String[] args) {
+		
+		Element anime = new Anime(1, "Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.COMPLETED, user);	
+		
+		Element serie = new Serie(1, "Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
+		
+		Element manga = new Manga(1, "Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
+		
+		System.out.println(anime);
+		
+		System.out.println("============================================");
+		
+		System.out.println(serie);
+
+		System.out.println("============================================");
+		
+		System.out.println(manga);
+
+		System.out.println("============================================");
+		
+		
+	}
+
+}

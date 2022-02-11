@@ -1,0 +1,11 @@
+package model.dao;
+import java.util.List;
+import model.entities.Element;
+
+public interface ElementDao {	
+	void insert(Element element, String query);
+	void update(Element element, String query);
+	void deleteById(Integer id, String query);
+	Element findById(Integer id, String query);
+	List<Element> findAll();
+}

@@ -1,0 +1,12 @@
+UPDATE `amslist`.`mangas`
+SET
+`Id` = <{Id: }>,
+`name` = <{name: }>,
+`coverImage` = <{coverImage: }>,
+`siteLink` = <{siteLink: }>,
+`description` = <{description: }>,
+`status` = <{status: }>,
+`volume` = <{volume: }>,
+`chapter` = <{chapter: }>,
+`userId` = <{userId: }>
+WHERE `Id` = <{expr}>;

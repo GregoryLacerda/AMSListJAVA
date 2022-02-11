@@ -1,0 +1,51 @@
+package model.dao.impl;
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.util.List;
+
+import db.DbException;
+import model.dao.ElementDao;
+import model.entities.Element;
+
+public class ElementDaoJDBC implements ElementDao{
+
+	private Connection conn;
+	
+	public ElementDaoJDBC(Connection connection) {
+		this.conn = connection; 
+	}
+
+	@Override
+	public void insert(Element element, String table) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Element element, String table) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteById(Integer id, String table) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element findById(Integer id, String table) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Element> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

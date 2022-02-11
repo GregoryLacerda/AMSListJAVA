@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+A:\Desenvolvimento\AMSListJAVA\.metadata\.plugins\org.eclipse.jdt.core
+4269311390.index
+1785567082.index
+4010536305.index
+413330804.index
+1865797976.index
