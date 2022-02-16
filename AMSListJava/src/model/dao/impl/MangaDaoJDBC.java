@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import db.DB;
 import db.DbException;
@@ -88,7 +91,19 @@ public class MangaDaoJDBC implements MangaDao{
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		
+		try {
+			st = conn.prepareStatement("DELETE FROM mangas WHERE mangaId = ?");
+			
+			st.setInt(1, id);
+			
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		
 		
 	}
 
@@ -127,10 +142,86 @@ public class MangaDaoJDBC implements MangaDao{
 
 	@Override
 	public List<Manga> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.prepareStatement("SELECT mangas.*, user.* "
+					+ "FROM mangas INNER JOIN user "
+					+ " ON mangas.userId = user.userId "
+					+ "ORDER BY mangaName");
+			
+			rs = st.executeQuery();
+			
+			List<Manga> list = new ArrayList<Manga>();
+			Map<Integer, User> map = new HashMap<Integer, User>(); 
+			
+			while (rs.next()) {
+				User user = map.get(rs.getInt("userId"));
+				
+				if (user == null) {
+					user = instatiateUser(rs);
+					map.put(rs.getInt("userId"), user);
+				}
+				
+				Manga manga = instantiateManga(rs, user);
+				
+				list.add(manga);
+			}
+			return list;
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeResultSet(rs);
+			DB.closeStatement(st);
+		}
+		
+		
 	}
 	
+	public List<Manga> findByUser(User user){
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.prepareStatement("SELECT mangas.*, user.* "
+					+ "FROM mangas INNER JOIN user "
+					+ "ON mangas.userId = user.userId "
+					+ "WHERE user.userId = ? "
+					+ "ORDER BY mangaName");
+			
+			st.setInt(1, user.getId());
+			
+			rs = st.executeQuery();
+			
+			List <Manga> list = new ArrayList<>();
+			Map<Integer, User> map = new HashMap<>();
+			
+			while (rs.next()) {
+				User usr = map.get(rs.getInt("mangas.userId"));
+				
+				if (usr == null) {
+					usr = instatiateUser(rs);
+					map.put(rs.getInt("mangas.userId"), usr);
+				}
+				
+				Manga manga = instantiateManga(rs, usr);
+				
+				list.add(manga);
+			}
+			
+			return list;
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeResultSet(rs);
+			DB.closeStatement(st);
+		}
+		
+		
+	}
 	
 	private Manga instantiateManga(ResultSet rs, User user) throws SQLException {		
 		Manga manga = new Manga();

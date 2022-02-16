@@ -1,5 +1,7 @@
 package application;
 
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.MangaDao;
 import model.entities.Anime;
@@ -25,28 +27,31 @@ public class Program {
 		
 		Manga manga2 = new Manga("Mushoku 2", "mushoku2", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
 		
-		/*System.out.println(anime);
+		/*Insert		
+		mangaDao.insert(manga);
+		*/
 		
-		System.out.println("============================================");
-		
-		System.out.println(serie);
-
-		System.out.println("============================================");
-		
-		System.out.println(manga);
-
-		System.out.println("============================================");*/
-		
-		//mangaDao.insert(manga);
-		
-		manga = mangaDao.findById(3);
+		/*Find by Id
+		 manga = mangaDao.findById(3);
 		
 		System.out.println(manga);
 		
+		/*Update
 		manga.setName("Mushoku");
 		System.out.println("Updated: " + manga);
-		mangaDao.update(manga);
+		mangaDao.update(manga);*/
 		
+		/*Find by User
+		 List<Manga> mangaList = mangaDao.findByUser(user);
+		for (Manga manga3 : mangaList) {
+			System.out.println(manga3);
+		}*/
+		
+		/*Find by id
+		manga2.setId(5)
+		Manga mangas = mangaDao.findById(manga2.getId());
+		System.out.println(mangas);
+		*/
 	}
 
 }
