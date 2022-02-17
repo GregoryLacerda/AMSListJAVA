@@ -3,6 +3,7 @@ package application;
 import java.util.List;
 
 import model.dao.DaoFactory;
+import model.dao.ElementDao;
 import model.dao.MangaDao;
 import model.entities.Anime;
 import model.entities.Element;
@@ -17,19 +18,23 @@ public class Program {
 	
 	public static void main(String[] args) {
 		
-		MangaDao mangaDao = new DaoFactory().createMangaDao();
+		//MangaDao mangaDao = new DaoFactory().createMangaDao();
+		
+		ElementDao elementDao = new DaoFactory().createElementDao();
 		
 		Element anime = new Anime("Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.COMPLETED, user);	
 		
 		Element serie = new Serie("Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
 		
-		Manga manga = new Manga("Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
+		Element manga = new Manga("Mushoku Teste", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
 		
-		Manga manga2 = new Manga("Mushoku 2", "mushoku2", "Site", "Descricao", 2.0, 3.0, Status.WATCHING, user);
+		
 		
 		/*Insert		
 		mangaDao.insert(manga);
 		*/
+		
+		elementDao.insert(manga);
 		
 		/*Find by Id
 		 manga = mangaDao.findById(3);
@@ -51,6 +56,13 @@ public class Program {
 		manga2.setId(5)
 		Manga mangas = mangaDao.findById(manga2.getId());
 		System.out.println(mangas);
+		*/
+		
+		/* Find all
+		List<Manga> list = mangaDao.findAll();
+		for (Manga manga3 : list) {
+			System.out.println(manga3);
+		}
 		*/
 	}
 

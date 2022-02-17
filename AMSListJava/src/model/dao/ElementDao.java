@@ -1,6 +1,8 @@
 package model.dao;
 import java.util.List;
+
 import model.entities.Element;
+import model.entities.User;
 
 public interface ElementDao {	
 	
@@ -9,4 +11,5 @@ public interface ElementDao {
 	void deleteById(Integer id);
 	Element findById(Integer id);
 	List<Element> findAll();
+	List<Element> findByUser(User user);
 }

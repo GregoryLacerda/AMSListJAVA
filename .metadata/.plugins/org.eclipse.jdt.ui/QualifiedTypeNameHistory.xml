@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="sun.security.util.Password"/>
     <fullyQualifiedTypeName name="model.dao.impl.UserDaoJDBC"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
     <fullyQualifiedTypeName name="model.dao.ElementDao"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -15,15 +14,19 @@
     <fullyQualifiedTypeName name="org.w3c.dom.ElementTraversal"/>
     <fullyQualifiedTypeName name="model.entities.Manga"/>
     <fullyQualifiedTypeName name="db.DB"/>
-    <fullyQualifiedTypeName name="model.dao.MangaDao"/>
     <fullyQualifiedTypeName name="model.dao.DaoFactory"/>
     <fullyQualifiedTypeName name="model.entities.Element"/>
     <fullyQualifiedTypeName name="model.dao.impl.ElementDaoJDBC"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="db.DbException"/>
     <fullyQualifiedTypeName name="model.dao.impl.MangaDaoJDBC"/>
     <fullyQualifiedTypeName name="model.enums.Status"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="model.entities.User"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="db.DbException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="model.dao.MangaDao"/>
 </qualifiedTypeNameHistroy>

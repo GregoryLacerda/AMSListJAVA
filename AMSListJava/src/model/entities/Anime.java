@@ -7,7 +7,9 @@ public class Anime extends Element{
 	//Attributes
 	private Double season;
 	private Double episode;
+	private String table = "animes";
 	
+
 	//Contructors
 	public Anime() {
 		
@@ -20,20 +22,24 @@ public class Anime extends Element{
 	}
 	
 	//Getters and Setters
-	public Double getSeason() {
+	public Double getVolumeOrSeason() {
 		return season;
 	}
 
-	public void setSeason(Double season) {
+	public void setVolumeOrSeason(Double season) {
 		this.season = season;
 	}
 
-	public Double getEpisode() {
+	public Double getChapterOrEpisode() {
 		return episode;
 	}
 
-	public void setEpisode(Double episode) {
+	public void setChapterOrEpisode(Double episode) {
 		this.episode = episode;
+	}
+	
+	public String getTable() {
+		return table;
 	}
 	
 	//To String

@@ -3,13 +3,16 @@ package model.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import db.DB;
 import db.DbException;
 import model.dao.ElementDao;
+import model.entities.Anime;
 import model.entities.Element;
+import model.entities.Manga;
+import model.entities.Serie;
+import model.entities.User;
 
 public class ElementDaoJDBC implements ElementDao{
 
@@ -27,23 +30,61 @@ public class ElementDaoJDBC implements ElementDao{
 
 	@Override
 	public void insert(Element element) {
-		PreparedStatement st = null;
-		
+		PreparedStatement st = null;	
+				
 		try {
 			
-			st = conn.prepareStatement("INSERT INTO mangas "
-					+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
-					+ "VALUES (?,?,?,?,?,?,?,?)");
+			if (element instanceof Anime) {
+				Anime elemt = (Anime) element;
+				
+				st = conn.prepareStatement("INSERT INTO animes "
+						+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+						+ "VALUES (?,?,?,?,?,?,?,?)");
+				
+				st.setString(1, elemt.getName());
+				st.setString(2, elemt.getCoverImage());
+				st.setString(3, elemt.getSiteLink());
+				st.setString(4, elemt.getDescription());
+				st.setString(5, elemt.getStatus().toString());
+				st.setDouble(6, elemt.getVolumeOrSeason());
+				st.setDouble(7, elemt.getChapterOrEpisode());
+				st.setInt(8, elemt.getUser().getId());
+				
+			}else if (element instanceof Manga) {
+				Manga elemt = (Manga) element;
+
+				st = conn.prepareStatement("INSERT INTO mangas "
+						+ "(mangaName, mangaCoverImage, mangaSiteLink, mangaDescription, mangaStatus, volume, chapter, userId)\r\n"
+						+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?);");
+				
+				st.setString(1, elemt.getName());
+				st.setString(2, elemt.getCoverImage());
+				st.setString(3, elemt.getSiteLink());
+				st.setString(4, elemt.getDescription());
+				st.setString(5, elemt.getStatus().toString());
+				st.setDouble(6, elemt.getVolumeOrSeason());
+				st.setDouble(7, elemt.getChapterOrEpisode());
+				st.setInt(8, elemt.getUser().getId());
+				
+			}else if(element instanceof Serie) {
+				Serie elemt = (Serie) element;
+
+				st = conn.prepareStatement("INSERT INTO series "
+						+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+						+ "VALUES (?,?,?,?,?,?,?,?)");
+				
+				st.setString(1, elemt.getName());
+				st.setString(2, elemt.getCoverImage());
+				st.setString(3, elemt.getSiteLink());
+				st.setString(4, elemt.getDescription());
+				st.setString(5, elemt.getStatus().toString());
+				st.setDouble(6, elemt.getVolumeOrSeason());
+				st.setDouble(7, elemt.getChapterOrEpisode());
+				st.setInt(8, elemt.getUser().getId());
+				
+			}
 			
-			/*st.setString(1, manga.getName());
-			st.setString(2, manga.getCoverImage());
-			st.setString(3, manga.getSiteLink());
-			st.setString(4, manga.getDescription());
-			st.setString(5, manga.getStatus().toString());
-			st.setDouble(6, element.getVolume());
-			st.setDouble(7, manga.getChapter());
-			st.setInt(8, manga.getUser().getId());*/
-			
+			st.executeUpdate();
 						
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -52,6 +93,8 @@ public class ElementDaoJDBC implements ElementDao{
 		}
 		
 	}
+
+	
 
 	@Override
 	public void update(Element element) {
@@ -71,6 +114,14 @@ public class ElementDaoJDBC implements ElementDao{
 		return null;
 	}
 
+	@Override
+	public List<Element> findByUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
+				
 }
+	
+

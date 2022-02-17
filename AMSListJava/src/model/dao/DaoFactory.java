@@ -14,7 +14,7 @@ public class DaoFactory {
 	public UserDao creatUserDao() {
 		return new UserDaoJDBC(DB.getConnection());
 	}
-	public ElementDao createElementDao(Element element){
+	public ElementDao createElementDao(){
 		return new ElementDaoJDBC(DB.getConnection());
 	}
 }

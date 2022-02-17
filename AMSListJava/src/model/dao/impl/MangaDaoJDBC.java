@@ -39,8 +39,8 @@ public class MangaDaoJDBC implements MangaDao{
 			st.setString(3, manga.getSiteLink());
 			st.setString(4, manga.getDescription());
 			st.setString(5, manga.getStatus().toString());
-			st.setDouble(6, manga.getVolume());
-			st.setDouble(7, manga.getChapter());
+			st.setDouble(6, manga.getVolumeOrSeason());
+			st.setDouble(7, manga.getChapterOrEpisode());
 			st.setInt(8, manga.getUser().getId());
 			
 			st.executeUpdate();
@@ -75,8 +75,8 @@ public class MangaDaoJDBC implements MangaDao{
 			st.setString(3, manga.getSiteLink());
 			st.setString(4, manga.getDescription());
 			st.setString(5, manga.getStatus().toString());
-			st.setDouble(6, manga.getVolume());
-			st.setDouble(7, manga.getChapter());
+			st.setDouble(6, manga.getVolumeOrSeason());
+			st.setDouble(7, manga.getChapterOrEpisode());
 			st.setInt(8, manga.getUser().getId());
 			st.setInt(9, manga.getId());
 			
@@ -231,8 +231,8 @@ public class MangaDaoJDBC implements MangaDao{
 		manga.setSiteLink(rs.getString("mangaSiteLink"));
 		manga.setDescription(rs.getString("mangaDescription"));
 		manga.setStatus(Status.valueOf(rs.getString("mangaStatus")));
-		manga.setVolume(rs.getDouble("volume"));
-		manga.setChapter(rs.getDouble("chapter"));
+		manga.setVolumeOrSeason(rs.getDouble("volume"));
+		manga.setChapterOrEpisode(rs.getDouble("chapter"));
 		manga.setUser(user);
 		return manga;		
 	}

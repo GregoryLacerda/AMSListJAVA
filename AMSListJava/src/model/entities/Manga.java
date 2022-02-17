@@ -11,6 +11,7 @@ public class Manga extends Element{
 	//Attributes
 	private Double volume;
 	private Double chapter;
+	private String table = "mangas";
 	
 	//Contructors
 	public Manga() {
@@ -25,20 +26,25 @@ public class Manga extends Element{
 	}
 	
 	//Getters and Setters
-	public Double getVolume() {
+	public Double getVolumeOrSeason() {
 		return volume;
 	}
 
-	public void setVolume(Double volume) {
+	public void setVolumeOrSeason(Double volume) {
 		this.volume = volume;
 	}
 
-	public Double getChapter() {
+	public Double getChapterOrEpisode() {
 		return chapter;
 	}
 
-	public void setChapter(Double chapter) {
+	public void setChapterOrEpisode(Double chapter) {
 		this.chapter = chapter;
+	}
+	
+	
+	public String getTable() {
+		return table;
 	}
 	
 	//toString
