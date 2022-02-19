@@ -6,6 +6,7 @@ import model.dao.AnimeDao;
 import model.dao.DaoFactory;
 import model.dao.ElementDao;
 import model.dao.MangaDao;
+import model.dao.SerieDao;
 import model.entities.Anime;
 import model.entities.Element;
 import model.entities.Manga;
@@ -23,7 +24,7 @@ public class Program {
 		
 		AnimeDao animeDao = new DaoFactory().createAnimeDao();
 		
-		ElementDao elementDao = new DaoFactory().createElementDao();
+		SerieDao serieDao = new DaoFactory().createSerieDao();
 		
 		Element anime = new Anime(null, "Mushoku", "mushoku", "Site", "Descricao", 2.0, 3.0, Status.COMPLETED, user);	
 		
@@ -35,17 +36,18 @@ public class Program {
 		
 		
 		
-		
-				
+			
 		/*Insert		
 			mangaDao.insert((Manga) manga);
 			animeDao.insert((Anime) anime);
+			serieDao.insert((Serie) serie);
 		
 		*/
 		
 		/*Find by Id
 			manga = mangaDao.findById(3);
 			anime = animeDao.findById(1);
+			serie = serieDao.findById(1);
 		
 		System.out.println(manga);
 		
@@ -55,6 +57,9 @@ public class Program {
 		
 			anime.setName("Mushoku teste");
 			animeDao.update((Anime)anime);
+			
+			serie.setName("Mushoku teste");
+			serieDao.update((Serie)serie);
 		*/
 		
 		/*Find by User
@@ -66,6 +71,11 @@ public class Program {
 			List<Anime> listUser = animeDao.findByUser(user);
 			for (Anime anime2 : listUser) {
 				System.out.println(anime2);
+			}
+			
+			List<Serie> listUser = serieDao.findByUser(user);
+			for (Serie serie2 : listUser) {
+				System.out.println(serie2);
 			}
 		
 		*/
@@ -79,6 +89,8 @@ public class Program {
 			for (Anime anime2 : list) {
 				System.out.println(anime2);
 			}
+			
+			
 		
 		*/
 		
@@ -91,6 +103,11 @@ public class Program {
 			List<Anime> listAnime = animeDao.findAll();
 			for(Anime anime2 : list) {
 				System.out.println(anime2);
+			}
+			
+			List<Serie> list = serieDao.findAll();
+			for (Serie serie2 : list) {
+				System.out.println(serie2);
 			}
 		*/
 		
