@@ -18,27 +18,27 @@ public class Manga extends Element{
 		
 	}
 
-	public Manga( String name, String coverImage, String siteLink, String description, 
+	public Manga(Integer id, String name, String coverImage, String siteLink, String description, 
 			Double volume, Double chapter, Status status, User user) {
-		super(name, coverImage, siteLink, description, user, status);
+		super(id, name, coverImage, siteLink, description, user, status);
 		this.volume = volume;
 		this.chapter = chapter;
 	}
 	
 	//Getters and Setters
-	public Double getVolumeOrSeason() {
+	public Double getVolume() {
 		return volume;
 	}
 
-	public void setVolumeOrSeason(Double volume) {
+	public void setVolume(Double volume) {
 		this.volume = volume;
 	}
 
-	public Double getChapterOrEpisode() {
+	public Double getChapter() {
 		return chapter;
 	}
 
-	public void setChapterOrEpisode(Double chapter) {
+	public void setChapter(Double chapter) {
 		this.chapter = chapter;
 	}
 	

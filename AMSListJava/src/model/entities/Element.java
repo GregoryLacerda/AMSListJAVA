@@ -22,8 +22,9 @@ public class Element implements Serializable {
 	public Element() {
 	}
 
-	public Element(String name, String coverImage, String siteLink, String description, User user,
+	public Element(Integer id, String name, String coverImage, String siteLink, String description, User user,
 			Status status) {
+		this.id = id;
 		this.name = name;
 		this.coverImage = coverImage;
 		this.siteLink = siteLink;

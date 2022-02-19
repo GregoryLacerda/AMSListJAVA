@@ -39,8 +39,8 @@ public class MangaDaoJDBC implements MangaDao{
 			st.setString(3, manga.getSiteLink());
 			st.setString(4, manga.getDescription());
 			st.setString(5, manga.getStatus().toString());
-			st.setDouble(6, manga.getVolumeOrSeason());
-			st.setDouble(7, manga.getChapterOrEpisode());
+			st.setDouble(6, manga.getVolume());
+			st.setDouble(7, manga.getChapter());
 			st.setInt(8, manga.getUser().getId());
 			
 			st.executeUpdate();
@@ -75,8 +75,8 @@ public class MangaDaoJDBC implements MangaDao{
 			st.setString(3, manga.getSiteLink());
 			st.setString(4, manga.getDescription());
 			st.setString(5, manga.getStatus().toString());
-			st.setDouble(6, manga.getVolumeOrSeason());
-			st.setDouble(7, manga.getChapterOrEpisode());
+			st.setDouble(6, manga.getVolume());
+			st.setDouble(7, manga.getChapter());
 			st.setInt(8, manga.getUser().getId());
 			st.setInt(9, manga.getId());
 			
@@ -150,7 +150,7 @@ public class MangaDaoJDBC implements MangaDao{
 			st = conn.prepareStatement("SELECT mangas.*, user.* "
 					+ "FROM mangas INNER JOIN user "
 					+ " ON mangas.userId = user.userId "
-					+ "ORDER BY mangaName");
+					+ "ORDER BY mangaId");
 			
 			rs = st.executeQuery();
 			
@@ -180,7 +180,7 @@ public class MangaDaoJDBC implements MangaDao{
 		
 		
 	}
-	
+	@Override
 	public List<Manga> findByUser(User user){
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -231,8 +231,8 @@ public class MangaDaoJDBC implements MangaDao{
 		manga.setSiteLink(rs.getString("mangaSiteLink"));
 		manga.setDescription(rs.getString("mangaDescription"));
 		manga.setStatus(Status.valueOf(rs.getString("mangaStatus")));
-		manga.setVolumeOrSeason(rs.getDouble("volume"));
-		manga.setChapterOrEpisode(rs.getDouble("chapter"));
+		manga.setVolume(rs.getDouble("volume"));
+		manga.setChapter(rs.getDouble("chapter"));
 		manga.setUser(user);
 		return manga;		
 	}

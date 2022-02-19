@@ -14,28 +14,28 @@ public class Serie extends Element{
 		
 	}
 
-	public Serie(String name, String coverImage, String siteLink, String description, 
+	public Serie(Integer id, String name, String coverImage, String siteLink, String description, 
 			Double season, Double episode,  Status status, User user) {
-		super( name, coverImage, siteLink, description, user, status);
+		super(id, name, coverImage, siteLink, description, user, status);
 		this.season = season;
 		this.episode = episode;
 	}
 	
 	//Getters and Setters
 		
-	public Double getVolumeOrSeason() {
+	public Double getSeason() {
 		return season;
 	}
 
-	public void setVolumeOrSeason(Double season) {
+	public void setSeason(Double season) {
 		this.season = season;
 	}
 
-	public Double getChapterOrEpisode() {
+	public Double getEpisode() {
 		return episode;
 	}
 
-	public void setChapterOrEpisode(Double episode) {
+	public void setEpisode(Double episode) {
 		this.episode = episode;
 	}
 	

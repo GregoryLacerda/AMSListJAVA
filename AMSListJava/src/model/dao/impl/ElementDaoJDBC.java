@@ -28,20 +28,19 @@ public class ElementDaoJDBC implements ElementDao{
 		return null;
 	}
 
-	@Override
-	public void insert(Element element) {
+	/*@Override
+	public <T> void insert(T element) {
 		PreparedStatement st = null;	
 				
 		try {
 			
 			if (element instanceof Anime) {
-				Anime elemt = (Anime) element;
 				
 				st = conn.prepareStatement("INSERT INTO animes "
 						+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
 						+ "VALUES (?,?,?,?,?,?,?,?)");
 				
-				st.setString(1, elemt.getName());
+				st.setString(1, element.getName());
 				st.setString(2, elemt.getCoverImage());
 				st.setString(3, elemt.getSiteLink());
 				st.setString(4, elemt.getDescription());
@@ -92,7 +91,7 @@ public class ElementDaoJDBC implements ElementDao{
 			DB.closeStatement(st);
 		}
 		
-	}
+	}*/
 
 	
 
@@ -118,6 +117,12 @@ public class ElementDaoJDBC implements ElementDao{
 	public List<Element> findByUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insert(Element element) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

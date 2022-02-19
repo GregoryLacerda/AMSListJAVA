@@ -1,12 +1,49 @@
-UPDATE `amslist`.`mangas`
-SET
-`Id` = <{Id: }>,
-`name` = <{name: }>,
-`coverImage` = <{coverImage: }>,
-`siteLink` = <{siteLink: }>,
-`description` = <{description: }>,
-`status` = <{status: }>,
-`volume` = <{volume: }>,
-`chapter` = <{chapter: }>,
-`userId` = <{userId: }>
-WHERE `Id` = <{expr}>;
+if (element instanceof Anime) {
+			Anime elemt = (Anime) element;
+			
+			st = conn.prepareStatement("INSERT INTO animes "
+					+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+					+ "VALUES (?,?,?,?,?,?,?,?)");
+			
+			st.setString(1, elemt.getName());
+			st.setString(2, elemt.getCoverImage());
+			st.setString(3, elemt.getSiteLink());
+			st.setString(4, elemt.getDescription());
+			st.setString(5, elemt.getStatus().toString());
+			st.setDouble(6, elemt.getVolumeOrSeason());
+			st.setDouble(7, elemt.getChapterOrEpisode());
+			st.setInt(8, elemt.getUser().getId());
+			
+		}else if (element instanceof Manga) {
+			Manga elemt = (Manga) element;
+
+			st = conn.prepareStatement("INSERT INTO mangas "
+					+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+					+ "VALUES (?,?,?,?,?,?,?,?)");
+			
+			st.setString(1, elemt.getName());
+			st.setString(2, elemt.getCoverImage());
+			st.setString(3, elemt.getSiteLink());
+			st.setString(4, elemt.getDescription());
+			st.setString(5, elemt.getStatus().toString());
+			st.setDouble(6, elemt.getVolumeOrSeason());
+			st.setDouble(7, elemt.getChapterOrEpisode());
+			st.setInt(8, elemt.getUser().getId());
+			
+		}else if(element instanceof Serie) {
+			Serie elemt = (Serie) element;
+
+			st = conn.prepareStatement("INSERT INTO series "
+					+ "(name, coverImage, siteLink, description, status, volume, chapter, userId) "
+					+ "VALUES (?,?,?,?,?,?,?,?)");
+			
+			st.setString(1, elemt.getName());
+			st.setString(2, elemt.getCoverImage());
+			st.setString(3, elemt.getSiteLink());
+			st.setString(4, elemt.getDescription());
+			st.setString(5, elemt.getStatus().toString());
+			st.setDouble(6, elemt.getVolumeOrSeason());
+			st.setDouble(7, elemt.getChapterOrEpisode());
+			st.setInt(8, elemt.getUser().getId());
+			
+		}
